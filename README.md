@@ -7,6 +7,7 @@ This project demonstrates an integration between [miso](https://github.com/dmjio
   <img width="1006" height="347" alt="image" src="https://github.com/user-attachments/assets/7edaafea-078e-4334-be72-73fe099ad1cd" />
 </a>
 
+######
 
 > [!TIP] 
 > This requires installing [nix](https://nixos.org) with [Nix Flakes](https://wiki.nixos.org/wiki/Flakes) enabled.
