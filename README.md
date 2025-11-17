@@ -1,10 +1,11 @@
-:ramen: miso-chart.js
+:ramen: 📊 miso-chart.js
 ====================
 
-This project demonstrates an integration between [miso](https://github.com/dmjio/miso) and the [chart.js](https://www.chartjs.org/) library.
+This project demonstrates an integration between [miso](https://github.com/dmjio/miso) and the [chart.js](https://www.chartjs.org/) library. See [live](https://chartjs.haskell-miso.org).
 
-
-See [live](https://chartjs.haskell-miso.org).
+<a href="chartjs.haskell-miso.org">
+  <img width="1006" height="347" alt="image" src="https://github.com/user-attachments/assets/7edaafea-078e-4334-be72-73fe099ad1cd" />
+</a>
 
 
 > [!TIP] 
