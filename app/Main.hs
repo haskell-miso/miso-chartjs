@@ -6,7 +6,6 @@
 -----------------------------------------------------------------------------
 module Main where
 -----------------------------------------------------------------------------
-import           Control.Monad
 import           Miso
 import           Miso.Html.Element as H
 import           Miso.Html.Property as P
@@ -43,9 +42,9 @@ foreign export javascript "hs_start" main :: IO ()
 main :: IO ()
 main = run $ do
 #ifdef WASM
-  void $(JSaddle.Wasm.TH.evalFile "js/chart.js")
+  _ <- $(JSaddle.Wasm.TH.evalFile "js/chart.js")
 #else
-  void $ eval ($(embedStringFile "js/chart.js") :: MisoString)
+  _ <- eval ($(embedStringFile "js/chart.js") :: MisoString)
 #endif
   startApp app
 -----------------------------------------------------------------------------
@@ -60,13 +59,13 @@ app = (component (Model 0) updateModel viewModel)
 updateModel :: Action -> Transition Model Action
 updateModel = \case
   InitBarChart domRef ->
-    io_ $ void $ global # ("initBarChart" :: MisoString) $ [domRef]
+    io_ $ global # ("initBarChart" :: MisoString) $ [domRef]
   InitLineChart domRef ->
-    io_ $ void $ global # ("initLineChart" :: MisoString) $ [domRef]
+    io_ $ global # ("initLineChart" :: MisoString) $ [domRef]
   InitPieChart domRef ->
-    io_ $ void $ global # ("initPieChart" :: MisoString) $ [domRef]
+    io_ $ global # ("initPieChart" :: MisoString) $ [domRef]
   InitPolarChart domRef ->
-    io_ $ void $ global # ("initPolarChart" :: MisoString) $ [domRef]
+    io_ $ global # ("initPolarChart" :: MisoString) $ [domRef]
 -----------------------------------------------------------------------------
 githubStar :: View parent action
 githubStar = H.iframe_
