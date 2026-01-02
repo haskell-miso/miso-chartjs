@@ -12,13 +12,6 @@ import           Miso.Html.Property as P
 import           Miso.Lens
 import           Miso.String
 import qualified Miso.CSS as CSS
-import           Language.Javascript.JSaddle
------------------------------------------------------------------------------
-#ifdef WASM
-import qualified Language.Javascript.JSaddle.Wasm.TH as JSaddle.Wasm.TH
-#else
-import           Data.FileEmbed (embedStringFile)
-#endif
 -----------------------------------------------------------------------------
 newtype Model = Model { _value :: Int }
   deriving (Show, Eq)
@@ -42,9 +35,7 @@ foreign export javascript "hs_start" main :: IO ()
 main :: IO ()
 main = run $ do
 #ifdef WASM
-  _ <- $(JSaddle.Wasm.TH.evalFile "js/chart.js")
-#else
-  _ <- eval ($(embedStringFile "js/chart.js") :: MisoString)
+  _ <- $(evalFile "js/chart.js")
 #endif
   startApp app
 -----------------------------------------------------------------------------
