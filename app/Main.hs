@@ -33,7 +33,7 @@ foreign export javascript "hs_start" main :: IO ()
 #endif
 -----------------------------------------------------------------------------
 main :: IO ()
-main = run $ do
+main = do
 #ifdef WASM
   _ <- $(evalFile "js/chart.js")
 #endif
