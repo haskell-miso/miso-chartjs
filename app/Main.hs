@@ -37,7 +37,7 @@ main = do
 #ifdef WASM
   _ <- $(evalFile "js/chart.js")
 #endif
-  startApp app
+  startApp defaultEvents app
 -----------------------------------------------------------------------------
 app :: App Model Action
 app = (component (Model 0) updateModel viewModel)
