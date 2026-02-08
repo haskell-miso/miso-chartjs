@@ -47,7 +47,7 @@ app = (component (Model 0) updateModel viewModel)
   }
 #endif
 -----------------------------------------------------------------------------
-updateModel :: Action -> Transition Model Action
+updateModel :: Action -> Effect ROOT Model Action
 updateModel = \case
   InitBarChart domRef ->
     io_ $ global # ("initBarChart" :: MisoString) $ [domRef]
