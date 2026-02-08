@@ -6,6 +6,8 @@
 -----------------------------------------------------------------------------
 module Main where
 -----------------------------------------------------------------------------
+import           Control.Monad (void)
+-----------------------------------------------------------------------------
 import           Miso
 import           Miso.Html.Element as H
 import           Miso.Html.Property as P
@@ -50,13 +52,13 @@ app = (component (Model 0) updateModel viewModel)
 updateModel :: Action -> Effect ROOT Model Action
 updateModel = \case
   InitBarChart domRef ->
-    io_ $ global # ("initBarChart" :: MisoString) $ [domRef]
+    io_ $ void $ global # ("initBarChart" :: MisoString) $ [domRef]
   InitLineChart domRef ->
-    io_ $ global # ("initLineChart" :: MisoString) $ [domRef]
+    io_ $ void $ global # ("initLineChart" :: MisoString) $ [domRef]
   InitPieChart domRef ->
-    io_ $ global # ("initPieChart" :: MisoString) $ [domRef]
+    io_ $ void $ global # ("initPieChart" :: MisoString) $ [domRef]
   InitPolarChart domRef ->
-    io_ $ global # ("initPolarChart" :: MisoString) $ [domRef]
+    io_ $ void $ global # ("initPolarChart" :: MisoString) $ [domRef]
 -----------------------------------------------------------------------------
 githubStar :: View parent action
 githubStar = H.iframe_
